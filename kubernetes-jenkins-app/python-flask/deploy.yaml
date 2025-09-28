@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Python-flask-deployment
+  labels:
+    app: Python-flask
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: Python-flask
+  template:
+    metadata:
+      labels:
+        app: Python-flask
+    spec:
+      containers:
+      - name: Python-flask
+        image: smartgigsctf/f-app3.1'
+        ports:
+        - containerPort: 80
