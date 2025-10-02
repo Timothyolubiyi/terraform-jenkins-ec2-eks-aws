@@ -57,16 +57,7 @@ pipeline {
                 }
             }
         }
-        stage('AWS') {
-      steps {
-        // This requires the "AWS Steps" / "AWS Credentials" binding support in Jenkins (plugin)
-        withCredentials([[$class: 'AmazonWebServicesCredentialsBinding', credentialsId: 'aws-creds']]) {
-          sh '''
-            aws sts get-caller-identity
-            # other aws commands...
-          '''
-        }
-      }
+        
     }
-  }
 }
+
